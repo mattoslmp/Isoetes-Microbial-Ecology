@@ -17,7 +17,7 @@ This repository contains the documented code and supporting files needed to repr
 
 ## Revised Figure 6
 
-The original MetaCyc heatmap contained many pathways and was difficult to read at manuscript scale. The revised version summarizes selected biologically informative pathways from Table S2 and groups them by functional category:
+The biologically informative pathways from Table S2 and groups them by functional category:
 
 - Carbon / C1 / energy metabolism;
 - Aromatic compound degradation;
