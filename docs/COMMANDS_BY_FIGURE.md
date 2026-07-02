@@ -38,6 +38,10 @@ Outputs: NOISeq result tables and MD plots in `results/taxonomic_differential_ab
 
 ## Figure 6 - selected MetaCyc pathway heatmap
 
+The full package includes `scripts/03_figures/figure6_metacyc_selected_pathways.py`, which reads Table S2 and writes the selected CSV plus PNG/SVG/PDF figure. A generic plotting script is also available in GitHub.
+
+Full Table S2 workflow:
+
 ```bash
 python scripts/03_figures/figure6_metacyc_selected_pathways.py \
   --table-s2 data/raw/picrust2/Table_S2_MetaCyc_differential_pathways.xlsx \
@@ -45,7 +49,13 @@ python scripts/03_figures/figure6_metacyc_selected_pathways.py \
   --processed-dir data/processed
 ```
 
-Input: `data/raw/picrust2/Table_S2_MetaCyc_differential_pathways.xlsx`.
+Generic plot-only workflow:
+
+```bash
+python scripts/03_figures/plot_selected_metacyc_heatmap.py \
+  --selected-csv data/processed/Table_S2_selected_MetaCyc_pathways_for_Figure6.csv \
+  --outdir figures/main
+```
 
 Outputs:
 
@@ -56,8 +66,6 @@ figures/main/Figure_6_selected_MetaCyc_pathways.pdf
 data/processed/Table_S2_MetaCyc_tidy_fold_changes.csv
 data/processed/Table_S2_selected_MetaCyc_pathways_for_Figure6.csv
 ```
-
-The selected heatmap is generated from Table S2 and includes pathways related to carbon/C1 metabolism, aromatic compound degradation, nitrogen/sulfur/phosphorus cycling, iron acquisition/cofactors/redox processes, terpenoid/isoprenoid metabolism and stress/cell-envelope processes.
 
 ## Figure 7
 
