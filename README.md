@@ -10,27 +10,29 @@ This repository contains the documented code and supporting files needed to repr
 
 - taxonomic differential abundance analysis with NOISeq;
 - PICRUSt2 / MetaCyc predicted functional profiling;
-- revised Figure 6 based on selected MetaCyc pathways from Table S4;
+- revised Figure 6 based on selected MetaCyc pathways from Table S2;
 - supplementary tables S1-S4 and CSV exports for transparent inspection;
 - figure-to-script mapping for the current manuscript version;
 - preserved legacy scripts for traceability and reproducibility.
 
 ## Revised Figure 6
 
+The original MetaCyc heatmap contained many pathways and was difficult to read at manuscript scale. The revised version summarizes selected biologically informative pathways from Table S2 and groups them by functional category:
+
 - Carbon / C1 / energy metabolism;
 - Aromatic compound degradation;
-- Cofactors / vitamins;
+- Nitrogen / sulfur / phosphorus metabolism;
+- Iron acquisition / cofactors / redox;
 - Terpenoid / isoprenoid metabolism;
-- Nitrogen / sulfur metabolism;
-- Stress / iron / cell envelope.
+- Stress / cell envelope.
 
-Highlighted pathways include methanogenesis from H2 and CO2, mevalonate pathway I, geranylgeranyl diphosphate biosynthesis, aromatic compound degradation, NAD salvage pathway II, sulfolactate degradation and enterobactin biosynthesis.
+Highlighted pathways include methanogenesis from H2 and CO2, methanogenesis from acetate, reductive acetyl-CoA pathway, aromatic compound degradation, nitrate reduction, sulfur oxidation, sulfolactate degradation, methylphosphonate degradation, enterobactin biosynthesis, NAD salvage pathway II, mevalonate pathway I and geranylgeranyl diphosphate biosynthesis.
 
 Run the revised figure script with:
 
 ```bash
 python scripts/03_figures/figure6_metacyc_selected_pathways.py \
-  --table-s4 data/raw/picrust2/Table_S4_MetaCyc_enriched_pathways.xlsx \
+  --table-s2 data/raw/picrust2/Table_S2_MetaCyc_differential_pathways.xlsx \
   --outdir figures/main \
   --processed-dir data/processed
 ```
@@ -40,7 +42,7 @@ python scripts/03_figures/figure6_metacyc_selected_pathways.py \
 The full execution guide is available in:
 
 ```text
-docs/SCRIPTS_EXECUTION_GUIDE.md
+docs/COMMANDS_BY_FIGURE.md
 ```
 
 Main commands:
@@ -73,6 +75,10 @@ Isoetes-Microbial-Ecology/
 ├── manuscript/
 └── docs/
 ```
+
+## Notes on unavailable source scripts
+
+The uploaded `scripts*` folders did not contain the analytical source scripts or raw non-microbial trait data used to regenerate Figures 1, 2, 3, 4 and 7 from scratch. These final figure outputs are preserved where supplied, and this limitation is documented in `docs/COMMANDS_BY_FIGURE.md`.
 
 ## Notes on binary files
 
