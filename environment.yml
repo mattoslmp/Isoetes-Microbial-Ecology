@@ -1,0 +1,45 @@
+name: isoetes-microbial-ecology
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - pandas
+  - matplotlib
+  - openpyxl
+  - scipy
+  - r-base=4.3
+  - r-essentials
+  - r-optparse
+  - r-readr
+  - r-readxl
+  - r-dplyr
+  - r-tidyr
+  - r-ggplot2
+  - r-forcats
+  - r-ggpubr
+  - r-gridextra
+  - r-gtools
+  - r-reshape2
+  - r-rcolorbrewer
+  - r-pheatmap
+  - r-ggrepel
+  - r-tidyverse
+  - r-devtools
+  - r-remotes
+  - r-biocmanager
+  - r-ggsci
+  - r-compositions
+  - r-zcompositions
+  - r-igraph
+  - bioconductor-phyloseq
+  - bioconductor-biomformat
+  - bioconductor-noiseq
+  - bioconductor-edger
+  - bioconductor-deseq2
+  - bioconductor-aldex2
+  - bioconductor-microbiome
+  - bioconductor-microbiotaprocess
