@@ -1,85 +1,33 @@
 # Isoetes Microbial Ecology
 
-Reproducible repository for scripts, figures and supplementary material associated with the microbial ecology and predicted functional profiling analyses of *Isoetes cangae* cultivated in pure and mixed ferruginous lake sediments from the Carajás canga ecosystem.
+Reproducible repository for scripts, figures, and supplementary material associated with the microbial ecology and PICRUSt2/MetaCyc functional profiling analyses of *Isoetes cangae*.
 
-Repository link: https://github.com/mattoslmp/Isoetes-Microbial-Ecology
+## Manuscript and supplementary material
 
-## Contents
+The publication package contains:
 
-This repository contains the documented code and supporting files needed to reproduce the microbial ecology analyses used in the manuscript:
+- `manuscript/Article_Isoetes_GPM_CFC_GN_AMSO_LMP.docx`
+- `supplementary_material/Supplemental_Material_Isoetes_LMP.docx`
 
-- taxonomic differential abundance analysis with NOISeq;
-- PICRUSt2 / MetaCyc predicted functional profiling;
-- revised Figure 6 based on selected MetaCyc pathways from Table S2;
-- supplementary tables S1-S4 and CSV exports for transparent inspection;
-- figure-to-script mapping for the current manuscript version;
-- preserved legacy scripts for traceability and reproducibility.
-
-## Revised Figure 6
-
-The biologically informative pathways from Table S2 and groups them by functional category:
-
-- Carbon / C1 / energy metabolism;
-- Aromatic compound degradation;
-- Nitrogen / sulfur / phosphorus metabolism;
-- Iron acquisition / cofactors / redox;
-- Terpenoid / isoprenoid metabolism;
-- Stress / cell envelope.
-
-Highlighted pathways include methanogenesis from H2 and CO2, methanogenesis from acetate, reductive acetyl-CoA pathway, aromatic compound degradation, nitrate reduction, sulfur oxidation, sulfolactate degradation, methylphosphonate degradation, enterobactin biosynthesis, NAD salvage pathway II, mevalonate pathway I and geranylgeranyl diphosphate biosynthesis.
-
-Run the revised figure script with:
+## Figure 6 workflow
 
 ```bash
-python scripts/03_figures/figure6_metacyc_selected_pathways.py \
-  --table-s2 data/raw/picrust2/Table_S2_MetaCyc_differential_pathways.xlsx \
-  --outdir figures/main \
-  --processed-dir data/processed
+python scripts/03_figures/figure6_publication_heatmap.py \
+  --selected-csv data/processed/Table_S2_selected_MetaCyc_pathways_publication.csv \
+  --outdir figures/main
 ```
 
-## Command-line execution
+## Supplementary table mapping
 
-The full execution guide is available in:
+- Table S1 - sequencing quality summary.
+- Table S2 - MetaCyc differential pathways used for Figure 6.
+- Table S3 - taxonomic differential abundance summary.
+- Table S4 - taxonomic composition / abundance summary.
+- Table S5 - additional complete MetaCyc enriched-pathway workbook retained for completeness.
 
-```text
-docs/COMMANDS_BY_FIGURE.md
-```
+## Documentation
 
-Main commands:
-
-```bash
-Rscript scripts/00_setup/check_r_packages.R
-Rscript scripts/01_taxonomic_differential_abundance/run_taxon_differential_abundance.R
-Rscript scripts/02_picrust_metacyc_pathways/run_picrust_metacyc_noiseq_workflow.R
-python scripts/03_figures/figure6_metacyc_selected_pathways.py
-```
-
-## Repository structure
-
-```text
-Isoetes-Microbial-Ecology/
-├── data/
-│   ├── raw/
-│   └── processed/
-├── figures/
-│   ├── main/
-│   └── supplementary/
-├── scripts/
-│   ├── 00_setup/
-│   ├── 01_taxonomic_differential_abundance/
-│   ├── 02_picrust_metacyc_pathways/
-│   ├── 03_figures/
-│   └── legacy_original/
-├── supplementary_material/
-│   └── tables/
-├── manuscript/
-└── docs/
-```
-
-## Notes on unavailable source scripts
-
-The uploaded `scripts*` folders did not contain the analytical source scripts or raw non-microbial trait data used to regenerate Figures 1, 2, 3, 4 and 7 from scratch. These final figure outputs are preserved where supplied, and this limitation is documented in `docs/COMMANDS_BY_FIGURE.md`.
-
-## Notes on binary files
-
-The complete organized package includes binary files such as `.xlsx`, `.png`, `.pdf`, `.docx` and `.qza`. Large binary assets should be pushed with standard Git or Git LFS when needed. Text-based documentation, command-line scripts and CSV exports are kept directly in GitHub for readability.
+- `PUBLICATION_UPDATE.md`
+- `docs/ALL_SCRIPTS_DOCUMENTATION.md`
+- `docs/SUPPLEMENTARY_MATERIAL_FINAL_MAP.md`
+- `docs/COMMANDS_BY_FIGURE.md`
