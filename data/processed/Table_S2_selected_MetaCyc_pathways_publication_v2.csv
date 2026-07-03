@@ -1,0 +1,23 @@
+functional_group,pathway,highlight,N6 vs AM,TI3 vs AM,TI3 vs N6,N6 vs TI3,AM vs TI3,TI3+N6 vs AM,AM50+N650 vs AM,AM10+TI390 vs AM
+Carbon / C1 / energy metabolism,methanogenesis from H2 and CO2,yes,9.5,8.15,,,,9.11,,
+Carbon / C1 / energy metabolism,superpathway of C1 compounds oxidation to CO2,no,2.13,2.8,,,,,2.13,
+Carbon / C1 / energy metabolism,formaldehyde assimilation I (serine pathway),no,2.17,,,,,2.84,,
+Carbon / C1 / energy metabolism,TCA cycle VII (acetate-producers),no,2.39,,,1.74,,0.78,,
+Aromatic compound degradation,meta cleavage pathway of aromatic compounds,yes,4.58,,,2.43,,,,
+Aromatic compound degradation,catechol degradation II (meta-cleavage pathway),no,2.03,1.99,,,,3.28,1.96,1.71
+Aromatic compound degradation,catechol degradation to 2-oxopent-4-enoate II,yes,2.27,2.23,,,,4.13,2.25,2.02
+Aromatic compound degradation,protocatechuate degradation I (meta-cleavage pathway),no,3.46,,,1.76,,,,
+Cofactors / vitamins / redox,NAD salvage pathway II,yes,2.95,2.8,,,,3.71,,
+Cofactors / vitamins / redox,pyridoxal 5'-phosphate biosynthesis I,no,2.75,2.17,,,,3.35,1.95,
+Cofactors / vitamins / redox,adenosylcobalamin biosynthesis II (late cobalt incorporation),no,2.88,,,1.57,,,,
+Cofactors / vitamins / redox,factor 420 biosynthesis,no,2.5,2.0,,,,,,
+Terpenoid / isoprenoid metabolism,mevalonate pathway I,yes,4.35,3.37,,,,5.05,,
+Terpenoid / isoprenoid metabolism,superpathway of geranylgeranyldiphosphate biosynthesis I (via mevalonate),yes,4.33,3.35,,,,5.02,,
+Nitrogen / sulfur / phosphorus metabolism,nitrate reduction I (denitrification),yes,2.59,,,1.93,,0.94,,
+Nitrogen / sulfur / phosphorus metabolism,superpathway of sulfolactate degradation,yes,3.6,1.6,,2.01,,3.26,1.56,
+Nitrogen / sulfur / phosphorus metabolism,superpathway of sulfur oxidation (Acidianus ambivalens),yes,,,0.49,0.49,,,,
+Nitrogen / sulfur / phosphorus metabolism,methylphosphonate degradation I,yes,,,0.49,0.49,,,,
+Stress / iron / cell envelope,enterobactin biosynthesis,yes,3.0,,,2.65,,,3.55,3.74
+Stress / iron / cell envelope,ergothioneine biosynthesis I (bacteria),no,1.7,,,1.93,,,1.71,
+Stress / iron / cell envelope,superpathway of chorismate metabolism,no,2.52,,,2.17,,,2.43,2.2
+Stress / iron / cell envelope,teichoic acid (poly-glycerol) biosynthesis,no,2.12,,,,,2.0,2.3,1.94
