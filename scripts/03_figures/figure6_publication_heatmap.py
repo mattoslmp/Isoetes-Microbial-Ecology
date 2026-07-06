@@ -1,10 +1,4 @@
 #!/usr/bin/env python3
-"""Generate the final publication Figure 6 heatmap.
-
-The script reads a curated CSV derived from Table S2 and exports a clean,
-publication-ready MetaCyc pathway heatmap in PNG, SVG and PDF formats.
-The figure intentionally has no in-figure title.
-"""
 from __future__ import annotations
 
 import argparse
@@ -25,7 +19,7 @@ def wrap(text: str, width: int) -> str:
 
 def main() -> None:
   parser = argparse.ArgumentParser(description="Generate final Figure 6 heatmap.")
-  parser.add_argument("--selected-csv", type=Path, default=Path("data/processed/Table_S2_selected_MetaCyc_pathways_publication.csv"))
+  parser.add_argument("--selected-csv", type=Path, default=Path("data/processed/Table_S2_selected_MetaCyc_pathways_publication_v2.csv"))
   parser.add_argument("--outdir", type=Path, default=Path("figures/main"))
   args = parser.parse_args()
 
@@ -49,13 +43,14 @@ def main() -> None:
   image = ax.imshow(np.ma.masked_invalid(matrix), aspect="auto", cmap=cmap, vmin=0.8, vmax=10.0, interpolation="nearest")
 
   ax.set_xticks(np.arange(len(contrast_cols)))
-  ax.set_xticklabels(contrast_cols, fontsize=11.5, fontweight="bold")
+  ax.set_xticklabels([c.replace(" vs ", "\nvs ") for c in contrast_cols], fontsize=11.5, fontweight="bold")
   ax.tick_params(axis="x", top=True, bottom=False, labeltop=True, labelbottom=False, pad=10, length=0)
   ax.set_yticks([])
   ax.set_xticks(np.arange(-0.5, len(contrast_cols), 1), minor=True)
   ax.set_yticks(np.arange(-0.5, len(pathways), 1), minor=True)
   ax.grid(which="minor", color="white", linewidth=1.0)
   ax.tick_params(which="minor", bottom=False, left=False)
+
   for spine in ax.spines.values():
     spine.set_linewidth(0.7)
     spine.set_color("#c7c7c7")
@@ -66,7 +61,7 @@ def main() -> None:
     side_ax.axis("off")
 
   for i, pathway in enumerate(pathways):
-    label = ("★ " if highlights[i] else "") + wrap(pathway, 34)
+    label = ("* " if highlights[i] else "") + wrap(pathway, 34)
     ax_labels.text(0.99, i, label, ha="right", va="center", fontsize=12.2, fontweight="bold" if highlights[i] else "normal", color="black")
 
   starts = [i for i, group in enumerate(groups) if i == 0 or group != groups[i - 1]] + [len(groups)]
