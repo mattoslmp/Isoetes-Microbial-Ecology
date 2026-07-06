@@ -2,36 +2,39 @@
 
 This document explains how to install the computational environment needed to run the R and Python scripts in this repository and regenerate the available figures.
 
-## 1. Create the conda environment
+## 1. Create or activate the conda environment
 
-Recommended solver: mamba. Standard conda also works, but may be slower.
+If `conda` is not found, load it first:
+
+```bash
+source ~/anaconda3/etc/profile.d/conda.sh
+```
+
+or, for Miniconda:
+
+```bash
+source ~/miniconda3/etc/profile.d/conda.sh
+```
+
+Create the environment:
 
 ```bash
 conda env create -f environment.yml
-```
-
-or:
-
-```bash
-bash scripts/00_setup/setup_conda_environment.sh
-```
-
-Activate the environment:
-
-```bash
 conda activate isoetes-microbial-ecology
 ```
 
-## 2. Install/check R packages
+If the environment already exists and your prompt already shows `(isoetes-microbial-ecology)`, do not recreate it. Continue with the R package check below.
 
-Some R packages are installed through conda, while others may need to be installed from CRAN, Bioconductor, or GitHub.
+## 2. Install/check R packages
 
 ```bash
 Rscript scripts/00_setup/install_r_packages.R
 Rscript scripts/00_setup/check_r_packages.R
 ```
 
-The installer checks packages used by the current and legacy workflows, including phyloseq, biomformat, qiime2R, NOISeq, edgeR, DESeq2, ALDEx2, microbiome, MicrobiotaProcess, microbiomeMarker, pheatmap, ggplot2, ggpubr, dplyr, tidyr, readr, readxl, forcats, gtools, RColorBrewer, reshape2, compositions, zCompositions, ggsci, textshape, and metagMisc.
+Important: `microbiomeMarker` is an optional legacy package and is not required for the main workflows. It can fail in R 4.3 conda environments because dependencies such as CVXR may require Matrix >= 1.7. The installer and checker now skip `microbiomeMarker` by default.
+
+Required packages include phyloseq, biomformat, qiime2R, NOISeq, edgeR, DESeq2, ALDEx2, microbiome, MicrobiotaProcess, pheatmap, ggplot2, ggpubr, dplyr, tidyr, readr, readxl, forcats, gtools, RColorBrewer, reshape2, compositions, zCompositions, and ggsci.
 
 ## 3. Required input data layout
 
@@ -49,10 +52,10 @@ data/processed/Table_S2_selected_MetaCyc_pathways_publication_v2.csv
 
 ## 4. Generate Figure 6
 
-Preferred publication script:
+Use the corrected v2 CSV:
 
 ```bash
-python scripts/03_figures/figure6_publication_heatmap_v2.py \
+python scripts/03_figures/figure6_publication_heatmap.py \
   --selected-csv data/processed/Table_S2_selected_MetaCyc_pathways_publication_v2.csv \
   --outdir figures/main
 ```
